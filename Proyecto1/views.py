@@ -5,10 +5,11 @@ from django.template import Template, Context
 
 
 def saludo(request):
+    nombre = 'Juan'
     doc_externo = open('D:/Programing/Proyecto1/Proyecto1/plantillas/miplantilla.html')
     plt = Template(doc_externo.read())
     doc_externo.close()
-    ctx = Context()
+    ctx = Context({'nombre_persona': nombre})
     documento = plt.render(ctx)
     return HttpResponse(documento)
 
